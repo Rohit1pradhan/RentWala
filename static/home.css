@@ -1,0 +1,132 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    background-color: azure;
+}
+#img{
+    height: 40px;
+    width:50%;
+    font-size: small;
+    display: flex;
+    padding:2px 5px;
+
+
+}
+#img img{
+    width: 15%;
+    height: 100%;
+   
+}
+header{
+    display: flex;
+    background-color: bisque;
+    align-items: center;
+}
+section{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+#logoName{
+    font-family: 'Dancing Script', cursive;
+    justify-content:center ;
+    font-size: larger;
+}
+.discription{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: rgba(45,55,68,0.7);
+    font-style: italic;
+    font-size: larger;
+    padding:10px 50px ;
+    text-align: center;
+
+}
+#photos{
+    border: 10px double rgb(109, 166, 223);
+    width: 60%;
+    height: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    background-color: beige;
+    margin-left: 80px;
+
+}
+#photos img{
+    height: 30%;
+    width: 20%;
+    margin: 10px;
+
+}
+#login{
+    width: 70%;
+    height: 18rem;
+    margin-top: 5px;
+    background-image: url(https://klpropertynavi.com/files/rcms_conv_webp/files/user/202105281227_1-660x0.jpg_1622176068.webp?v=1622176070);
+    background-repeat: no-repeat;
+    margin-left: 80px;
+}
+#format{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+#login h1{
+    text-align: center;
+    color: rgb(8, 5, 56);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-decoration:underline;
+}
+#submit{
+    font-size: medium;
+    background-color: yellow;
+    border-radius: 26%;
+    margin: 8px 20%;
+}
+#login form{
+    font-size: larger;
+    margin-left:26%;
+}
+#register{
+    font-size: medium;
+    background-color: yellow;
+    border-radius: 26%;
+    margin: 8px 20%;
+
+}
+footer{
+    height: 19rem;
+    width: 100%;
+    background-color: aquamarine;
+    margin-top: 8px;
+}
+footer h1{
+    font-style:italic;
+}
+footer{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+
+}
+footer textarea{
+    margin-left: 15px;
+}
+footer button{
+    background-color: brown;
+    height: auto;
+    width: auto;
+    color: black;
+    font-size: large;
+    margin-left: 10px;
+
+}
+
+
+
+

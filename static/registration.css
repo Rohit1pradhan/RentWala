@@ -1,0 +1,48 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: #2c888b;
+}
+section{
+    justify-content: center;
+    align-items: center;
+    background-color: antiquewhite;
+    margin:14% 30%;
+    height:13rem;
+    border-radius: 13%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+section h1{
+    color: coral;
+    font-size: 1.8rem;
+    font-weight:bold;
+    font-style: italic;
+
+}
+.details{
+    padding:3% 0;
+    height: 60%;
+    width: 60%;
+    position: relative;
+}
+.details label{
+    position: absolute;
+    left: 0;
+}
+.details input{
+    position: absolute;
+    right: auto;
+    width: auto;
+}
+.details #sub{
+    width: 30%;
+    height: 20%;
+    margin: 15px 0;
+    position: absolute;
+    left: 30%;
+    background-color: darkgrey;
+}

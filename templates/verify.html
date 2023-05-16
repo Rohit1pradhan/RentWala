@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'verify.css' %}">
+<!--   <link rel="stylesheet" href="C:\Users\rohit\OneDrive\Desktop\rp\RentWala1\static\verify.css">-->
+    <title>Veryfy</title>
+</head>
+<body>
+    <section>
+        <h1>veryfy your mail id</h1>
+        <h2>we have sand you a otp on the same mail id that you have use for registration </h2>
+        <div>
+            <form action="http://127.0.0.1:8000/registration/" method="get">
+                <label for="otp">OTP</label>
+                <input type="text" id="otp" placeholder="enter otp" name="otp"><br>
+                <input id="sub" type="submit">
+            </form>
+        </div>
+    </section>
+</body>
+</html>
