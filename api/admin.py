@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from api.models import user, reset, activations, addhouse, varify_mail
+from api.models import user, reset, activations, varify_mail, addhouse
 
 
 # Register your models here.
@@ -18,7 +18,7 @@ class activateadmin(admin.ModelAdmin):
 
 @admin.register(addhouse)
 class addhouseadmin(admin.ModelAdmin):
-    list_display = ['id','owner_id','house_type','rent','facing','area','conditions','facillities','city']
+    list_display = ['id','owner_name','owner_contect_number','house_type','rent','house_facing','area','conditions','Facilities','city','picture1','picture2','picture3']
 
 @admin.register(varify_mail)
 class varify_mailadmin(admin.ModelAdmin):

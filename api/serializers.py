@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from api.models import user, reset, activations, addhouse, varify_mail
+from api.models import user, reset, activations, varify_mail, addhouse
 
 
 class userserializer(serializers.Serializer):
@@ -51,30 +51,10 @@ class activationserializer(serializers.Serializer):
         return  instance
 
 
-class addhousezerializer(serializers.Serializer):
-    owner_id = serializers.IntegerField()
-    house_type = serializers.CharField(max_length=100)
-    rent = serializers.CharField(max_length=20)
-    facing = serializers.CharField(max_length=30)
-    area = serializers.CharField(max_length=30)
-    conditions = serializers.CharField(max_length=200)
-    facillities = serializers.CharField(max_length=200)
-    city = serializers.CharField(max_length=30)
-
-    def create(self, validated_data):
-        return addhouse.objects.create(**validated_data)
-
-    def update(self, instance, validated_data):
-        instance.owner_id = validated_data.get('owner_id', instance.owner_id)
-        instance.house_type = validated_data.get('house_type', instance.house_type)
-        instance.rent = validated_data.get('rent', instance.rent)
-        instance.facing = validated_data.get('facing', instance.facing)
-        instance.area = validated_data.get('area', instance.area)
-        instance.conditions = validated_data.get('conditions', instance.conditions)
-        instance.facillities = validated_data.get('facillities', instance.facillities)
-        instance.city=validated_data.get('city',instance.city)
-        instance.save()
-        return instance
+class addhouseserializer(serializers.ModelSerializer):
+    class Meta:
+        model=addhouse
+        fields='__all__'
 class varifyserializer(serializers.ModelSerializer):
     class Meta:
         model=varify_mail

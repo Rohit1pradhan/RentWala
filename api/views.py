@@ -11,8 +11,8 @@ from rest_framework.renderers import JSONRenderer
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from api.models import user, reset, activations, addhouse, varify_mail
-from api.serializers import userserializer, resetserializer, activationserializer, addhousezerializer, varifyserializer
+from api.models import user, reset, activations, varify_mail
+from api.serializers import userserializer, resetserializer, activationserializer, varifyserializer, addhouseserializer
 
 
 # Create your views here.
@@ -225,45 +225,18 @@ def allusers(request):
     return HttpResponse(l)
 
 
-@csrf_exempt
-def addhome(request):
-    data=request.body
-    stream=io.BytesIO(data)
-    pdata=JSONParser().parse(stream)
-    serializer=addhousezerializer(data=pdata)
-    if serializer.is_valid():
-        serializer.save()
+def addproparty(request):
+    return render(request,'houses.html')
 
-    return HttpResponse("data save")
-
-def CityBasis(request):
-    data=request.body
-    stream=io.BytesIO(data)
-    pdata=JSONParser().parse(stream)
-    city=pdata.get('city')
-    houseData=addhouse.objects.all()
-    print(houseData)
-    l = []
-    for i in houseData:
-        houseCity=i.city
-        if houseCity==city:
-            d={}
-            ownerID=i.owner_id
-            owenerDetails=user.objects.get(id=ownerID)
-            name=owenerDetails.name
-            number=owenerDetails.mobile_number
-            d["Owner Name"]=name
-            d["Contect Number"]=number
-            serializer=addhousezerializer(i)
-            HouseDetails=JSONRenderer().render(serializer.data)
-            d["House Details"]=HouseDetails
-            l.append(d)
-    if len(l)!=0:
-        return HttpResponse(l)
-    return HttpResponse("no House found in this city")
-
-
-
+@method_decorator(csrf_exempt,name='dispatch')
+class addhouse(APIView):
+    def post(self,request):
+        serializer=addhouseserializer(data=request.data)
+        print(serializer)
+        if serializer.is_valid(raise_exception=True):
+            serializer.save()
+            return Response({'msg':'data save'})
+        return HttpResponse('error h')
 
 
 

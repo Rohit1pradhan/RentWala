@@ -76,6 +76,43 @@ section{
     background-color: black;
     padding: 0;
 }
+#addhouse{
+    width: 8%;
+    height: 5em;
+    position:fixed;
+    margin-top: 17%;
+
+    
+}
+#addhouse button{
+    height: 100%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: large;
+    font-weight: 400;
+    background-color:rgba(231,201,201,0.3);
+    border: none;
+    box-shadow: 6px 6px 12px #5c5c5c;
+    position: relative;
+    overflow: hidden;
+}
+#addhouse button::after{
+    content: '';
+    width: 100%;
+    height: 100%;
+    background-color: rgb(134, 180, 180);
+    position: absolute;
+    right: -100%;
+    top: 0;
+}
+#addhouse button:hover::after{
+    right: 0;
+    z-index: -1;
+    
+}
+
+#addhouse button a{
+    text-decoration: none;
+}
 
 
 

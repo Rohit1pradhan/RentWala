@@ -18,14 +18,18 @@ class activations(models.Model):
     current_city=models.CharField(max_length=30)
 
 class addhouse(models.Model):
-    owner_id=models.IntegerField()
-    house_type=models.CharField(max_length=100)
+    owner_name=models.CharField(max_length=50)
+    owner_contect_number=models.CharField(max_length=15)
+    house_type=models.IntegerField()
     rent=models.CharField(max_length=20)
-    facing=models.CharField(max_length=30)
+    house_facing=models.CharField(max_length=30)
     area=models.CharField(max_length=30)
     conditions=models.CharField(max_length=200)
-    facillities=models.CharField(max_length=200)
+    Facilities=models.CharField(max_length=200)
     city=models.CharField(max_length=30)
+    picture1=models.FileField(upload_to='HousePictures')
+    picture2 = models.FileField(upload_to='HousePictures')
+    picture3 = models.FileField(upload_to='HousePictures')
 
 
 class varify_mail(models.Model):
