@@ -32,8 +32,6 @@ urlpatterns = [
     path('search/',views.searchfortanent),
     path('alluser/',views.allusers),
     path('addproparty/',views.addproparty),
-    path('addhome/',views.addhouse.as_view()),
-    # path('houseOnCityBasis/',views.CityBasis)
-
+    path('addhome/',views.addhouse.as_view())
 ]+ static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
 

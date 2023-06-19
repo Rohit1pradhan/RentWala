@@ -17,7 +17,7 @@ class activations(models.Model):
     activation=models.CharField(max_length=10)
     current_city=models.CharField(max_length=30)
 
-class addhouse(models.Model):
+class AddHouse(models.Model):
     owner_name=models.CharField(max_length=50)
     owner_contect_number=models.CharField(max_length=15)
     house_type=models.IntegerField()

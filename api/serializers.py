@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from api.models import user, reset, activations, varify_mail, addhouse
+from api.models import user, reset, activations, varify_mail, AddHouse
 
 
 class userserializer(serializers.Serializer):
@@ -53,7 +53,7 @@ class activationserializer(serializers.Serializer):
 
 class addhouseserializer(serializers.ModelSerializer):
     class Meta:
-        model=addhouse
+        model=AddHouse
         fields='__all__'
 class varifyserializer(serializers.ModelSerializer):
     class Meta:

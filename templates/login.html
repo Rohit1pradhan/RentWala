@@ -120,6 +120,45 @@ section{
 #addhouse button a{
     text-decoration: none;
 }
+#houseavailable{
+    width: 8%;
+    height: 5em;
+    position:fixed;
+    margin-top: 17%;
+    margin-left: 92%;
+}
+#houseavailable button{
+    height: 100%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: large;
+    font-weight: 400;
+    background-color:rgba(184, 66, 197, 0.5);
+    border: none;
+    box-shadow: 10px 10px 25px #5c5c5c;
+    position: relative;
+    overflow: hidden;
+}
+
+#houseavailable button::after{
+    content: '';
+    width: 100%;
+    height: 100%;
+    background-color: rgb(180, 209, 131);
+    position: absolute;
+    right: -100%;
+    top: 0;
+}
+
+#houseavailable button:hover::after{
+    right: 0;
+    z-index: -1;
+
+}
+
+#houseavailable button a{
+    text-decoration: none;
+}
+
 
 
 
@@ -148,6 +187,11 @@ section{
         <div id="addhouse">
             <button><a href="http://127.0.0.1:8000/addproparty/"> To Add a New Proparty Click Hear</a></button>
         </div>
+
+        <div id="houseavailable">
+            <button><a href="/addhome/"> House Availabe For Rent</a></button>
+        </div>
+
         <div id="container">
             <div id="houses">
                 <div class="im"><img src="static/images/bungalow.jpg" alt=""></div>

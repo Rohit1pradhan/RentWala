@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House For Rent</title>
+
+    <style>
+        body{
+            background-color: rgb(174, 198, 209);
+            width: 99%;
+            height: 100%;
+        }
+        header{
+            background-color: black;
+            color: aliceblue;
+            padding-left: 30%;
+            height: 3em;
+        }
+        section .house{
+            height: 35em;
+            margin-top: 1%;
+            display: flex;
+            justify-content: space-between;
+        }
+        .details{
+            display: flex;
+            flex-wrap: wrap ;
+            flex-direction: column;
+            width: 30%;
+            padding: 2%;
+
+        }
+        .details h2{
+            margin: 0.3%;
+        }
+        .img{
+            width: 60%;
+            padding: 2%;
+            position: relative;
+        }
+        .img img{
+            width: 90%;
+            height: 90%;
+            padding-left: 4%;
+            padding-top: 2.6%;
+            /* overflow: hidden; */
+            position: relative;
+        }
+        .right{
+            position: absolute;
+            right: 5%;
+            top: 45%;
+            width: 4%;
+            height: 5%;
+            border: none;
+            font-size: large;
+            padding: 1%;
+            background-color: azure;
+            
+        }
+        .right i{
+            width: 100%;
+            height: 100%;
+            margin-left: 22%;
+            margin-top: 12%;
+        }
+        .right:hover{
+            cursor: pointer ;
+        }
+        .left{
+            position: absolute;
+            left: 4%;
+            top: 45%;
+            width: 4%;
+            height: 5%;
+            border: none;
+            font-size: large;
+            padding: 1%;
+            background-color: azure;
+        }
+        .left:hover{
+            cursor: pointer;
+        }
+        .left i{
+            width: 100%;
+            height: 100%;
+            margin-left: 22%;
+            margin-top: 12%;
+        }
+        #next button{
+            position:absolute;
+            left: 51%;
+            width: 15%;
+            height: 10%;
+            font-size: large;
+            font-weight: bold;
+            border-radius: 20%;
+            background-color: rgb(157, 93, 93);
+            border: none;
+            box-shadow: 6px 6px 12px #5c5c5c;
+        }
+        #next button:hover{
+            cursor: pointer;
+        }
+        #privious button{
+            position:absolute;
+            left: 31%;
+            width: 15%;
+            height: 10%;
+            font-size: large;
+            font-weight: bold;
+            border-radius: 20%;
+            background-color: rgb(153, 179, 114);
+            border: none;
+            box-shadow: 6px 6px 12px #5c5c5c;
+        }
+        #privious button:hover{
+            cursor: pointer;
+        }
+
+
+        
+
+        
+        
+        
+    </style>
+</head>
+<body>
+    <header>
+       <h1> These Houses Are Available For Rent</h1>
+    </header>
+    <section>
+        <div class="house">
+            <div class="details">
+                <h2>House Owner Name : <span id="name">mr.</span></h2> <br>
+                <h2>Contect Number : <span id="number">mr.</span></h2><br>
+                <h2>House Type : <span id="bhk">mr.</span></h2><br>
+                <h2>Rent : <span id="rent">mr.</span> <i class="fa-solid fa-indian-rupee-sign"></i></h2><br>
+                <h2>House Facing : <span id="facing">mr.</span></h2><br>
+                <h2>House Area : <span id="area">mr.</span></h2><br>
+                <h2>Owner Conditions : <span id="condition">mr.</span></h2><br>
+                <h2>Facilities Provided By Owner : <span id="facilities">mr.</span></h2><br>
+                <h2>City : <span id="city">mr.</span></h2><br>
+            </div>
+            <div class="img">
+                <img src="C:\Users\rohit\OneDrive\Desktop\rp\RentWala1\static\images\Bungalow.jpg" alt="" id="1">
+                <span class="left" onclick="leftphoto()"><i class="fa-solid fa-angles-left"></i></span>
+                <span class="right" onclick="rightphoto()"><i class="fa-solid fa-angles-right"></i></span>
+            </div>     
+        </div>
+        <div id="privious">
+            <button onclick="privousproparty()">privious Proparty</button>
+
+        </div>
+        <div id="next">
+            <button onclick="nextproparty()">Next Proparty</button>
+
+        </div>
+    </section>
+    <script>
+        let count=0
+        function nextproparty(){
+            count=count+1
+            pro(count)
+            
+        }
+
+        function privousproparty(){
+            count=count-1
+            pro(count)
+        }
+
+        var x="{{length}}"
+                var y="{{data}}"
+                var z=0
+                let arr=y.split('[')
+                let arr1=arr.join('')      
+                let arr2=arr1.split(']')
+                let arr3=arr2.join('-')  
+                let arr4=arr3.split('-,')
+
+                console.log(arr4);
+                console.log('hi');
+                console.log(arr4[1]);
+
+
+
+                for (let index = 0; index < arr4.length; index++) {
+                    arr5=arr4[index].split(",")
+                    console.log(arr[5]);
+                    let img=arr5[9].replace('&#x27;','')
+                    img1=img.replace('&#x27;','')
+                    let img2=arr5[10].replace('&#x27;','')
+                    img3=img2.replace('&#x27;','')
+                    let img4=arr5[11].replace('&#x27;','')
+                    img5=img4.replace('&#x27;','')
+                    console.log(arr[5]);
+                    
+                    for (let index = 0; index < arr5.length; index++) {
+                        
+                            let x=arr5[index].replace('&#x27;','')
+                            let y=x.replace('&#x27;','')
+                            if (index==0) {
+                                document.querySelector('#name').textContent=y
+                            
+                            }
+                            if (index==1) {
+                                document.querySelector('#number').textContent=y
+                            
+                            }
+                            if (index==2) {
+                                document.querySelector('#bhk').textContent=y+' BHK'
+                            
+                            }
+                            if (index==3) {
+                            document.querySelector('#rent').textContent=y
+                            
+                            }
+                            if (index==4) {
+                            document.querySelector('#facing').textContent=y
+                            
+                            }
+                            if (index==5) {
+                                document.querySelector('#area').textContent=y+' Sq.Ft'
+                            
+                            }
+                            if (index==6) {
+                                document.querySelector('#condition').textContent=y
+                            
+                            }
+                            if (index==7) {
+                                document.querySelector('#facilities').textContent=y
+                            
+                            }
+                            if (index==8) {
+                                document.querySelector('#city').textContent=y
+                            
+                            }
+                            if (index==9){
+                                document.getElementById("1").src =img1;
+                            }
+                    }
+                    break
+                }
+                
+
+        
+    </script>
+        
+
+        <script>
+             function pro(num){
+                var x="{{length}}"
+                var y="{{data}}"
+                var z=0
+                let arr=y.split('[')
+                let arr1=arr.join('')      
+                let arr2=arr1.split(']')
+                let arr3=arr2.join('-')  
+                let arr4=arr3.split('-,')
+
+                console.log(arr4);
+                console.log('hi');
+                console.log(arr4[1]);
+
+
+
+                for (let index = 0; index < arr4.length; index++) {
+                if (index==num) {
+                
+                    arr5=arr4[index].split(",")
+                    console.log(arr[5]);
+                    let img=arr5[9].replace('&#x27;','')
+                    img1=img.replace('&#x27;','')
+                    let img2=arr5[10].replace('&#x27;','')
+                    img3=img2.replace('&#x27;','')
+                    let img4=arr5[11].replace('&#x27;','')
+                    img5=img4.replace('&#x27;','')
+                    console.log(arr[5]);
+                    
+                    for (let index = 0; index < arr5.length; index++) {
+                        
+                            let x=arr5[index].replace('&#x27;','')
+                            let y=x.replace('&#x27;','')
+                            if (index==0) {
+                                document.querySelector('#name').textContent=y
+                            
+                            }
+                            if (index==1) {
+                                document.querySelector('#number').textContent=y
+                            
+                            }
+                            if (index==2) {
+                                document.querySelector('#bhk').textContent=y+' BHK'
+                            
+                            }
+                            if (index==3) {
+                            document.querySelector('#rent').textContent=y
+                            
+                            }
+                            if (index==4) {
+                            document.querySelector('#facing').textContent=y
+                            
+                            }
+                            if (index==5) {
+                                document.querySelector('#area').textContent=y+' Sq.Ft'
+                            
+                            }
+                            if (index==6) {
+                                document.querySelector('#condition').textContent=y
+                            
+                            }
+                            if (index==7) {
+                                document.querySelector('#facilities').textContent=y
+                            
+                            }
+                            if (index==8) {
+                                document.querySelector('#city').textContent=y
+                            
+                            }
+                            if (index==9){
+                                document.getElementById("1").src =img1;
+                            }
+                    
+                    }
+                    
+           
+                
+                 }
+                }
+                    
+                }
+                function leftphoto(){
+                        console.log(document.getElementById("1").src)
+                        let x=document.getElementById("1").src
+                        if (document.getElementById("1").src ==x && y==1) 
+                        {
+                            console.log('yes');
+                            document.getElementById("1").src =img3;
+                            y=0
+                            
+
+                        }
+                        else if (document.getElementById("1").src == x && y==0)
+                        {
+                            document.getElementById("1").src = img1;
+                            y=1
+
+                        }
+                    }
+                
+                y=0
+                function rightphoto(){
+                        console.log(img1);
+                        console.log(img3);
+                        console.log(img5);
+                        console.log(document.getElementById("1").src)
+                        let x=document.getElementById("1").src
+
+                        if (document.getElementById("1").src ==x && y==0) {
+                            console.log('okkk');
+                            document.getElementById("1").src =img3;
+                            y=1
+                            
+                        }
+ 
+                        else if (document.getElementById("1").src == x && y==1) {
+                            console.log('ho');
+                            document.getElementById("1").src = img5;
+                            y=0
+                        }
+                        
+                    }
+        </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

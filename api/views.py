@@ -11,7 +11,7 @@ from rest_framework.renderers import JSONRenderer
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from api.models import user, reset, activations, varify_mail
+from api.models import user, reset, activations, varify_mail, AddHouse
 from api.serializers import userserializer, resetserializer, activationserializer, varifyserializer, addhouseserializer
 
 
@@ -216,7 +216,6 @@ def searchfortanent(request):
 
 def allusers(request):
     data=user.objects.all()
-    print(data)
     l=[]
     for i in data:
         serializer = userserializer(i)
@@ -236,7 +235,32 @@ class addhouse(APIView):
         if serializer.is_valid(raise_exception=True):
             serializer.save()
             return Response({'msg':'data save'})
-        return HttpResponse('error h')
+        return HttpResponse('Error in serializer validations')
+
+    def get(self,request):
+        data=AddHouse.objects.all()
+        l = []
+        for i in data:
+            l1=[]
+            serializer = addhouseserializer(i)
+            l1.append(serializer.data['owner_name'])
+            l1.append(serializer.data['owner_contect_number'])
+            l1.append(serializer.data['house_type'])
+            l1.append(serializer.data['rent'])
+            l1.append(serializer.data['house_facing'])
+            l1.append(serializer.data['area'])
+            l1.append(serializer.data['conditions'])
+            l1.append(serializer.data['Facilities'])
+            l1.append(serializer.data['city'])
+            l1.append(serializer.data['picture1'])
+            l1.append(serializer.data['picture2'])
+            l1.append(serializer.data['picture3'])
+
+            l.append(l1)
+        print(type(l))
+
+        return render(request,'Rent Houses.html',{'data':l,'length':len(l)})
+
 
 
 
