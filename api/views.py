@@ -100,9 +100,9 @@ def login(request):
             return render(request,'login.html',{'name':name})
         else:
             result = {"msg": "password is incorect"}
-            return JsonResponse(result,content_type='application/json')
+            return render(request,'home.html',{'data':1})
     result = {"msg": "You are not a register user plese first register yourself"}
-    return JsonResponse(result, content_type='application/json')
+    return render(request,'home.html',{'value':1})
 
 
 def rendom():
