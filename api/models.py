@@ -15,7 +15,7 @@ class reset(models.Model):
 class activations(models.Model):
     user_id=models.IntegerField()
     activation=models.CharField(max_length=10)
-    current_city=models.CharField(max_length=30)
+
 
 class AddHouse(models.Model):
     owner_name=models.CharField(max_length=50)

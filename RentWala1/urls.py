@@ -26,12 +26,18 @@ urlpatterns = [
     path('register/',views.register),
     path('registration/',views.registeration.as_view()),
     path('login',views.login),
-    path('forgetpassword/',views.forgetpassword),
-    path('resetpassword/',views.resetpassword),
-    path('activate/',views.activate),
+    # path('forgetpassword/',views.forgetpassword),
+    path('forpassword/',views.forpassword),
+    path('forgetpassword/',views.ForgetPassword.as_view()),
+    path('resetpassword/',views.ResetPassword.as_view()),
+    # path('activate/',views.activate),
+    path('activate/',views.actavation.as_view()),
     path('search/',views.searchfortanent),
     path('alluser/',views.allusers),
     path('addproparty/',views.addproparty),
-    path('addhome/',views.addhouse.as_view())
+    path('addhome/',views.addhouse.as_view()),
+    # path('demo/',views.demo.as_view()),
+    # path('demo1/',views.demo1.as_view())
+
 ]+ static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
 

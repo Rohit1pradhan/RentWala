@@ -38,7 +38,6 @@ class resetserializer(serializers.Serializer):
 class activationserializer(serializers.Serializer):
     user_id=serializers.IntegerField()
     activation=serializers.CharField(max_length=10)
-    current_city=serializers.CharField(max_length=30)
 
     def create(self, validated_data):
         return activations.objects.create(**validated_data)
@@ -46,7 +45,6 @@ class activationserializer(serializers.Serializer):
     def update(self, instance, validated_data):
         instance.user_id=validated_data.get('user_id',instance.user_id)
         instance.activation = validated_data.get('activation', instance.activation)
-        instance.current_city = validated_data.get('current_city', instance.current_city)
         instance.save()
         return  instance
 

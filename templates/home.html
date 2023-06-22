@@ -2,9 +2,52 @@
 <html lang="en">
 <head>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Delicious+Handrawn&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="static/home.css">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'home.css' %}">
 
     <title>RentWala</title>
+    <style>
+        #fpass{
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            border: 2px solid red;
+            width: 30%;
+            height: 2em;
+            border: none;
+        }
+        #fpass button{
+            width: 100%;
+            height: 100%;
+            border-radius: 10%;
+            margin-left: 33%;
+            margin-bottom: 0;
+            margin-top: .2%;
+            background-color: rgb(167, 208, 194);
+        }
+        #fpass button a{
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            text-decoration: none;
+            font-weight: 900;
+            
+            
+        }
+
+        #msg{
+            position: absolute;
+            border: 1px solid red;
+            left: 80%;
+            top: 45%;
+            background-color: rgb(105, 243, 105);
+            border-radius: 8%;
+            border: none;
+            width: 15%;
+            align-items: center;
+
+        }
+        #msg #i{
+            text-align: center;
+        }
+
+    </style>
 </head>
 <body>
     <header>
@@ -42,6 +85,16 @@
                 <input id="password" type="password" placeholder="password" name="password"><br>
                 <input id="submit" type="submit">
 
+
+            <div id="fpass">
+                <button><a href="http://127.0.0.1:8000/forpassword/">Forget Password</a></button>
+            </div>
+
+            <div id="msg">
+                <h3 id="i"></h3>
+
+            </div>
+
             </form><br><br><br>
             <h1>For Registration</h1>
             <form action="http://127.0.0.1:8000/register/">
@@ -67,6 +120,18 @@
             alert('You are Not A Register User Plese Register Yourself')
             
         }
+
+        var register=0
+        var registreoutput='{{register}}'
+        if (register!=registreoutput) {
+            document.querySelector('#i').innerText='Register Successfully'
+        }
+        var Password=0
+        var repassword='{{reset}}'
+        if (Password!=repassword) {
+            document.querySelector('#i').innerText='Password Change Successfully'
+        }
+
     </script>
 </body>
 </html>

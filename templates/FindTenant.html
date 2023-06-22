@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Tenant</title>
+    <style>
+        body{
+            background-color: blanchedalmond;
+        }
+        .info{
+            /* border: 1px solid red;  */
+            width: 90%;
+            height: .3rem;
+            margin: auto;
+            overflow: hidden;
+            /* margin-top: 1%; */
+            display: flex;
+            justify-content: space-between;
+
+        }
+        .image{
+            width: 20%;
+            height: 90%;
+            background-color: aquamarine;
+            margin-top: .8%;
+            margin-left: .8%;
+        }
+        .image img{
+            width: 100%;
+            height: 100%;
+        }
+        .details{
+            width: 70%;
+            height: 73%;
+            margin-top: .8%;
+            padding: .4%;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <div class="info">
+            <div class="image"><img src="https://www.shutterstock.com/image-vector/male-gray-silhouette-avatar-icon-600w-394820875.jpg" alt=""></div>
+            <div class="details">
+                <h3>name : <span id="name"></span> </h3>
+                <h3>Mobile Number : <span id="number"></span> </h3>
+                <h3>Email Id : <span id="mail"></span> </h3>
+                <h3>City : <span id="city"></span> </h3>
+
+            </div>
+
+        </div>
+    </section>
+    <script>
+        var len="{{len}}"
+        var data="{{data}}"
+        let arr=data.split('[')
+        let arr1=arr.join('')      
+        let arr2=arr1.split(']')
+        let arr3=arr2.join('-')  
+        let arr4=arr3.split('-,')
+        for (let index = 0; index < arr4.length; index++) {
+            let x=document.querySelector(".info")
+            
+            arr5=arr4[index].split(",")
+            console.log(arr5);
+            document.getElementById('name').innerHTML = arr5[0];
+            document.getElementById('number').innerHTML = arr5[2];
+            document.getElementById('mail').innerHTML = arr5[1];
+            document.getElementById('city').innerHTML = arr5[3];
+        document.write(x.innerHTML)
+            
+        }
+        
+    </script>
+    
+</body>
+</html>

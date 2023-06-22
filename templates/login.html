@@ -3,7 +3,9 @@
 <head>
     {% load static %}
     <link rel="stylesheet" href="{% static 'login.css' %}">
+
     <!-- <link rel="stylesheet" href="C:\Users\rohit\OneDrive\Desktop\rp\RentWala1\static\login.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         *{
     margin: 0;
@@ -159,8 +161,124 @@ section{
     text-decoration: none;
 }
 
+#activation{
+    width: 20%;
+    height: 3rem;
+    position: absolute;
+    left: 76%;
+    margin-bottom: 3%;
+    margin-top: 0.5%;
+    border-end-end-radius: 20%;
+    border-top-right-radius: 20%;
+    border-top-left-radius: 20%;
+    border-bottom-left-radius: 20%;
+    border-color: #5c5c5c;
+    background-color: rgb(168, 229, 229);
+    overflow: hidden;
+    display:flex;
+    justify-content: space-between;
+    padding-top: .2%;
+    
+    
+}
+#activation #circle{
+    width: 20%;
+    height: 80%;
+    border-radius: 50%;
+    background-color: red;
+    box-shadow: 10px 10px 20px #5c5c5c;
+   position: absolute;
+   left: 70%;
+}
+#activation #circle:hover{
+    cursor: pointer;
+}
+#activation h3{
+    display: flex;
+    flex-wrap: wrap;
+}
+#status{
+    display: flex;
+    flex-wrap: wrap;
+    width: 64%;
+    height: 70%;
+    margin-top: .4%;
+    margin-left: 1%;
+    align-items: center;
+    justify-content: center;
+}
+#changestatus{
+    background-color: #5c5c5c;
+    width: 20%;
+    height: 7%;
+    position: absolute;
+    top: 19%;
+    left: 4%;
+    border-radius: 8%;
+}
+#changestatus button{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    border: none;
+    box-shadow: 6px 6px 12px #5c5c5c;
+}
+#changestatus #sp{
+    width: 24%;
+    height: 50%;
+    align-items: center;
+    justify-content: center;
+    margin-left: 34%;
+    margin-top: 1%;
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
 
 
+}
+#sub{
+    width: 100%;
+    box-shadow: 6px 6px 12px #5c5c5c;
+    
+}
+#sub:hover{
+    cursor: pointer;    
+}
+
+#info{
+    width: 40%;
+    border: none;
+    position: absolute;
+    left: 30%;
+    top: 19%;
+    border-radius: 12%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight:400;
+    font-size: large;
+    color: beige;
+    background-color: black;
+}
+#Tenant{
+    position: absolute;
+    left: 87%;
+    border: 1px solid wheat;
+    width: 12%;
+    height: 49%;
+    background-color: rgb(228, 236, 233);
+    color: black;
+    
+}
+#Tenant i{
+    margin-top: 3%;
+    margin-left: 8%;
+}
+#Tenant a{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight:900;
+    font-style: oblique;
+    margin-left: 12%;
+}
 
 
     </style>
@@ -175,14 +293,51 @@ section{
         <div class="heading">
             <h1>hello Mr. {{name}} welcom to RentWala</h1>
         </div>
+        <div id="Tenant">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <a href="http://127.0.0.1:8000/activate/" method='get'>Find Tenant</a>
+        </div>
     </header>
     <section>
+        {% load static %}
         <div id="intro">
             <h3>we provide you a best place for yor comfort and in your
                  range and near by you and our vision is to make people confortable with there house
                 and it will be your dreem house where you can start your new jurny</h3>
             <h3>we have muliple property according to your range and we try our best to serve you the
                 best.</h3>
+
+
+
+        <div id="changestatus">
+            <h4>To Change Your Current Status Plese Click Below</h4>
+            <div id="sp">
+                <form action="http://127.0.0.1:8000/activate/" method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="user_id" value={{id}}>
+                    <input type="submit" name="" id="sub">
+                </form>
+            </div>
+        </div>
+
+        <div id="info">
+            If You Want That House Owner Can Find You For Batter Reach You Can Activate Your Status And By Help Of This Owner Also Can Find You
+        </div>
+
+
+        
+
+
+
+
+
+        <button id="activation"><div id="status"><h3>Current Status: <h3 id="ac"></h3> </h3></div><div id="circle" onclick="position()"></div></button>
+
+
+
+
+
+        <br>
         </div>
         <div id="addhouse">
             <button><a href="http://127.0.0.1:8000/addproparty/"> To Add a New Proparty Click Hear</a></button>
@@ -193,50 +348,51 @@ section{
         </div>
 
         <div id="container">
+            {% load static %}
             <div id="houses">
-                <div class="im"><img src="static/images/bungalow.jpg" alt=""></div>
+                <div class="im"><img src="{% static 'images/bungalow.jpg' %}" alt=""></div>"
                 <div class="before">
                     <h1>Bungalow</h1>
                     <p>Bungalow type of houses have a large veranda, a low-pitched roof and a single-storey or one-and-a-half-storey design. A bungalow is usually surrounded by a garden and a parking area and stand at a distance from other houses. Bungalows are more expensive than flats as they occupy more living space, often spread across a single level. There are various styles of bungalow designs in India, traditional as well as contemporary. As the pandemic transformed our homes into multi-functional spaces, there was a rise in the popularity of bungalows as they provide outdoor spaces to enjoy. Also, as most of India has tropical weather, indoor and outdoor spaces are often integrated into well-designed bungalows.</p>
                 </div>
             </div>
             <div id="houses">
-                <div class="im"><img src="static/images/cottage.jpg" alt=""></div>
+                <div class="im"><img src="{% static 'images/cottage.jpg' %}" alt=""></div>
                 <div class="before">
                     <h1>Cottage</h1>
                     <p>The cottage is a small single-storey house of any architectural style. A cottage tends to be a small, cozy home in the countryside boasting of a rustic but comfortable feel, often a summer home or vacation home. Cottages usually have an old-world charm about them and may be made of stone, wood, thatched roofs, stucco walls, a small porch, etc., according to the climate of the region. The cottage house plan designs are popular as vacation homes near beaches (in Goa) lakes or mountains such as places in Himachal Pradesh, Nainital (Uttrakhand) or Ooty, etc.</p>
                 </div>
             </div>
             <div id="houses">
-                <div class="im"><img src="static/images/Flats-and-Apartments.jpg" alt=""></div>
+                <div class="im"><img src="{% static 'images/Flats-and-Apartments.jpg' %}" alt=""></div>
                 <div class="before">
                     <h1>Flats-and-Apartments</h1>
                     <p>A flat, or an apartment, is a type of house that has all the basic amenities needed for comfortable living and is part of a building that has several other houses. The limited supply of land has led to vertical housing developments. Metros and cities have witnessed the rise of flat or apartment-type houses. The flats can be 1/2/3 BHK and at times even bigger. Developers also offer flats with several additional amenities that suit the requirements of modern home buyers. Apartments have increasingly become the most popular type of house across cities in India and remain affordable for the middle-class and the upper-middle-class urban population.</p>
                 </div>
             </div>
             <div id="houses">
-                <div class="im"><img src="static/images/Penthouse.jpg" alt=""></div>
+                <div class="im"><img src="{% static 'images/Penthouse.jpg' %}" alt=""></div>
                 <div class="before">
                     <h1>Penthouse</h1>
                     <p>A penthouse is a luxury house on the top floor of a premium building. Penthouses in India are associated with exclusivity and status symbol. These types of houses have lavish features that are not present in the other apartments of the building. Penthouses have a lot of natural light and ventilation and an unobstructed view of the surroundings. Although penthouses are located in multi-residential complexes, they give a sense of independence that is similar that offered by villas and bungalows. These types of houses may have multiple levels within the same house, which suits joint families. Compared with a regular flat, the ceiling is higher in a penthouse. It has unique layout plans and luxury amenities like personal terraces, and private elevators.</p>
                 </div>
             </div>
             <div id="houses">
-                <div class="im"><img src="static/images/Row-house.jpg" alt=""></div>
+                <div class="im"><img src="{% static 'images/Row-house.jpg' %}" alt=""></div>
                 <div class="before">
                     <h1>Row-house</h1>
                     <p>A row house is an independent type of house built inside a gated community. The architectural treatment for all row houses is identical. A row house design combines the designs and benefits of a bungalow and a flat. One can renovate a row house without any interference from the builder. Row houses provide the benefits of independent living while staying in a community. In India, row houses are commonly seen in Noida, Gurugram, Pune, Chennai, Bengaluru, and Hyderabad.</p>
                 </div>
             </div>
             <div id="houses">
-                <div class="im"><img src="static/images/Studio-house.jpg" alt=""></div>
+                <div class="im"><img src="{% static 'images/Studio-house.jpg' %}" alt=""></div>
                 <div class="before">
                     <h1>Studio-house</h1>
                     <p>RK is the short form for room-kitchen, and is also known as a studio apartment. These houses, mostly seen in metro cities, do not have a separate bedroom or a living room. Studio rooms are compact and efficient, and preferred by working individuals and students.</p>
                 </div>
             </div>
             <div id="houses">
-                <div class="im"><img src="static/images/Villa.jpg" alt=""></div>
+                <div class="im"><img src="{% static 'images/Villa.jpg' %}" alt=""></div>
                 <div class="before">
                     <h1>Villa</h1>
                     <p>A villa type of house in India is like a luxury home that boasts of all the state-of-the-art amenities. Villa usually has an expansive area with a lawn and backyard and many other facilities. Villas in the same locality foster a sense of togetherness that building flats provide, yet they give the owner the privacy of a bungalow. Villas are preferred by those who want the privacy of an independent unit but not the hassle of constructing a home. The outskirts of cities provide ample space for constructing these villas within gated communities. A villa in a gated community offers recreation with a clubhouse, swimming pool and theatre.</p>
@@ -244,5 +400,35 @@ section{
             </div>
         </div>
     </section>
+    <script>
+        // function position(){
+        //     if (document.querySelector('#circle').style.backgroundColor==='red') {
+        //         console.log('red');
+        //     }
+        //     document.querySelector('#circle').style.backgroundColor='green'
+        //     const box = document.getElementById('circle');
+
+        //     box.style.position = 'absolute';
+        //     box.style.top = '2px';
+        //     box.style.left = '130px';
+
+        // }
+
+        let x='{{data}}'
+
+        console.log(x);
+        if (x==1) {
+            document.querySelector('#circle').style.backgroundColor='green'
+            document.querySelector('#ac').innerHTML='Actiavate'
+
+            
+        }
+        if (x==0) {
+            document.querySelector('#circle').style.backgroundColor='red'
+            document.querySelector('#ac').innerHTML='UnActiavate'
+            
+        }
+
+    </script>
 </body>
 </html>

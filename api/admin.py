@@ -14,7 +14,7 @@ class resetadmin(admin.ModelAdmin):
 
 @admin.register(activations)
 class activateadmin(admin.ModelAdmin):
-    list_display = ['id','user_id','activation','current_city']
+    list_display = ['id','user_id','activation']
 
 @admin.register(AddHouse)
 class addhouseadmin(admin.ModelAdmin):
